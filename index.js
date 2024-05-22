@@ -13,15 +13,19 @@ const speak = (num) => {
 
 }
 let spokeNumbers = [];
+let speakInterval;
 const startSpeaking = () => {
+    //clear spoken number list
+    document.getElementById('spoken-number-list').innerHTML = '';
+    spokeNumbers = [];
     audioEle.play();
     document.getElementById('speak-btn').innerHTML = 'Dừng đọc';
-    document.getElementById('speak-btn').setAttribute('onclick', 'stopSpeaking()');
+    document.getElementById('speak-btn').onclick = stopSpeaking;
     const speakValue = document.getElementById('speak-speed').value;
     //disable input
     document.getElementById('speak-speed').disabled = true;
     console.log(speakValue);
-    setInterval(() => {
+    speakInterval = setInterval(() => {
         var num = Math.floor(Math.random() * 90) + 1;
         //only speak number that has not been spoken
         while (spokeNumbers.includes(num)) {
@@ -34,12 +38,15 @@ const startSpeaking = () => {
         spokenNumberItem.classList.add('spoken-number-item');
         document.getElementById('spoken-number-list').appendChild(spokenNumberItem);
     }, speakValue * 1000);
+
 }
 
 const stopSpeaking = () => {
     audioEle.pause();
     document.getElementById('speak-btn').innerHTML = 'Bắt đầu đọc';
     document.getElementById('speak-speed').disabled = false;
-    document.getElementById('speak-btn').setAttribute('onclick', 'startSpeaking()');
+    document.getElementById('speak-btn').onclick = startSpeaking;
+
+    clearInterval(speakInterval);
 }
 
