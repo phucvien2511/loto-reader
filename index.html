@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="referrer" content="no-referrer" />
+        <title>Đọc loto tự động</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Đọc loto</h1>
+            <div class="choose-range">
+                <div>
+                    Tốc độ đọc:
+                    <span id="choose-range-value">5 giây/số</span>
+                </div>
+                <div class="choose-range-slider">
+                    <input
+                        type="range"
+                        id="speak-speed"
+                        min="3"
+                        max="10"
+                        step="0.5"
+                        value="5"
+                        label="Tốc độ đọc"
+                        placeholder="Tốc độ đọc"
+                        oninput="updateRangeValue(this.value)"
+                    />
+                </div>
+            </div>
+
+            <button id="speak-btn" onclick="startSpeaking()">
+                Bắt đầu đọc
+            </button>
+            <audio id="speech-audio" autoplay style="display: none"></audio>
+            <div class="spoken-number-wrapper">
+                <div>Số đã đọc</div>
+                <div id="spoken-number-list"></div>
+            </div>
+
+            <script src="index.js"></script>
+        </div>
+    </body>
+</html>

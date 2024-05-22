@@ -1,0 +1,125 @@
+body {
+    font-family: "Roboto", sans-serif;
+}
+h1 {
+    text-align: center;
+}
+.wrapper {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin: 0 auto;
+}
+.choose-range {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-size: 18px;
+}
+.choose-range-slider {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+#choose-range-value {
+    font-weight: 500;
+}
+input[type="range"] {
+    margin: 16px 0;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border-color: green;
+    background: #feea7c;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #d3d3d3;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    border-radius: 8px;
+    background: #d3d3d3;
+}
+
+#speak-btn {
+    background: #feea7c;
+    color: black;
+    height: 48px;
+    width: 100%;
+    border-radius: 24px;
+    border: 2px solid green;
+    font-weight: 600;
+}
+
+.spoken-number-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    font-weight: 500;
+    border-top: 2px solid green;
+    padding-top: 12px;
+    font-size: 18px;
+    width: 100%;
+}
+#spoken-number-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 16px;
+}
+.spoken-number-item {
+    /* wood background color */
+    background: #feea7c;
+    color: black;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid green;
+}
+@media screen and (max-width: 600px) {
+    .wrapper {
+        width: calc(100% - 32px);
+        gap: 32px;
+    }
+    #speak-btn {
+        font-size: 18px;
+        height: 56px;
+        border-radius: 30px;
+    }
+}
